@@ -1,0 +1,29 @@
+# Data & weights - NEVER commit
+models/
+*.safetensors
+*.bin
+*.tar
+*.tar.gz
+*.zip
+lora_*/
+dino_index*/
+data/
+ft_data*/
+*.png
+*.jpg
+*.jpeg
+# The challenge template folder (contains data + its own git)
+MedReason-Challenge-Docker/
+# Outputs, logs, submissions
+outputs/
+submission/
+*.out
+*.err
+*.json
+*.jsonl
+# Env & caches
+envs/
+__pycache__/
+*.pyc
+# junk
+cat
