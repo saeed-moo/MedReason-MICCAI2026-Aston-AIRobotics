@@ -12,12 +12,15 @@ Our central finding is that **closed-ended and open-ended performance pull the b
 
 ## Method: task-routed hybrid
 
+   ![Task-routed hybrid architecture](docs/figure1_architecture.png)
+
 A single **Qwen2.5-VL-7B** backbone carries one LoRA adapter, toggled per question type:
 
 - **MCQ** → adapter **enabled** (fine-tuned accuracy 0.945)
 - **Open-ended** → adapter **disabled** (base model's richer, image-grounded traces)
 
 This gives the fine-tuned model's MCQ accuracy and the base model's open-ended behaviour from one checkpoint plus a ~40MB adapter, rather than two full models. All inference is single-pass, deterministic, and self-contained (no external network).
+   
 
 ## Key results (held-out validation)
 
@@ -37,6 +40,8 @@ Four natural interventions that did **not** improve open-ended quality under lea
 - **Open-ended-only LoRA** — appeared marginally better on token F1 (0.175 vs 0.171), but the local judge reversed this: 0.812 vs 1.084 GT, substantially worse.
 
 ## Calibrated local judge
+
+   ![Task-routed hybrid architecture](docs/figure2_judge.png)
 
 Token-overlap F1 and embedding cosine cannot resolve open-ended quality (four systems within 0.016 F1). We built a local LLM judge (Qwen2.5-32B-Instruct, 0–4 rubric) approximately anchored to the organizers' reported baseline. It reverses a spurious token-F1 "win" and, via error analysis, points to the 7B backbone's **visual-diagnostic perception** as the plausible bottleneck: the model confidently names incorrect specific findings on subtle/rare cases.
 
