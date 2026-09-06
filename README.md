@@ -57,6 +57,14 @@ docker_submission/  custom_system.py, Dockerfile, requirements.txt
 - Model weights and challenge data are **not** included (challenge data-use terms; size). Paths point to the released MedReason training data and the public Qwen2.5-VL checkpoint.
 - Compute: single NVIDIA GH200 GPU.
 
+  ## Paper
+
+This work is described in our paper accepted at the **MedReason Challenge & Workshop, MICCAI 2026** (Springer LNCS proceedings, poster):
+
+> Saeed Moosivand, Fangyijie Wang, Ziyang Wang. *A Task-Routed Hybrid Vision–Language System for Medical Visual Question Answering, and a Calibrated Analysis of the Open-Ended Reasoning Ceiling.* MICCAI 2026 MedReason Workshop.
+
+Full proceedings reference to be added once published.
+
 ## Citation
 
 If you find this useful, please cite the accompanying paper (MICCAI 2026 MedReason workshop, Springer LNCS). Full reference to be added once proceedings are published.
