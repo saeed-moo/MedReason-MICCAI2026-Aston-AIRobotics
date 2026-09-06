@@ -12,7 +12,7 @@ Our central finding is that **closed-ended and open-ended performance pull the b
 
 ## Method: task-routed hybrid
 
-   ![Task-routed hybrid architecture](figure1_architecture.png)
+![Task-routed hybrid architecture](figure1_architecture.png)
 
 A single **Qwen2.5-VL-7B** backbone carries one LoRA adapter, toggled per question type:
 
@@ -41,7 +41,7 @@ Four natural interventions that did **not** improve open-ended quality under lea
 
 ## Calibrated local judge
 
-   ![Task-routed hybrid architecture](figure2_judge.png)
+![Calibrated judge scores](figure2_judge.png)
 
 Token-overlap F1 and embedding cosine cannot resolve open-ended quality (four systems within 0.016 F1). We built a local LLM judge (Qwen2.5-32B-Instruct, 0–4 rubric) approximately anchored to the organizers' reported baseline. It reverses a spurious token-F1 "win" and, via error analysis, points to the 7B backbone's **visual-diagnostic perception** as the plausible bottleneck: the model confidently names incorrect specific findings on subtle/rare cases.
 
@@ -62,7 +62,7 @@ docker_submission/  custom_system.py, Dockerfile, requirements.txt
 - Model weights and challenge data are **not** included (challenge data-use terms; size). Paths point to the released MedReason training data and the public Qwen2.5-VL checkpoint.
 - Compute: single NVIDIA GH200 GPU.
 
-  ## Paper
+## Paper
 
 This work is described in our paper accepted at the **MedReason Challenge & Workshop, MICCAI 2026** (Springer LNCS proceedings, poster):
 
