@@ -1,4 +1,4 @@
-# MedReason 2026 — Aston-AIRobotics
+# MedReason 2026 Team Aston-AIRobotics
 
 **A Task-Routed Hybrid Vision-Language System for Medical Visual Question Answering, and a Calibrated Analysis of the Open-Ended Reasoning Ceiling**
 
@@ -6,8 +6,8 @@ Accepted at the **MedReason Challenge & Workshop, MICCAI 2026** (Springer LNCS p
 
 ### Project resources
 - **Paper:** [PDF](paper/medreason_paper.pdf) (accepted, MICCAI 2026 MedReason Workshop, Springer LNCS). Also on [OpenReview](https://openreview.net/forum?id=dQCjj8tmCG). Springer proceedings link to be added once published.
-- **Challenge:** [MedReason 2026](https://medreason26.github.io/) · [Synapse leaderboard](https://www.synapse.org/Synapse:syn74403682/wiki/)
-- **Poster:** see the [Poster PDF](poster/Aston-AIRobotics_Poster.pdf) folder in this repository. Add the PDF there if you want it downloadable.
+- **Challenge:** [MedReason 2026](https://medreason26.github.io/) and [Synapse leaderboard](https://www.synapse.org/Synapse:syn74403682/wiki/)
+- **Poster:** [Poster PDF](poster/Aston-AIRobotics_Poster.pdf)
 - **Code:** this repository
 
 ### Authors & contact
@@ -33,7 +33,6 @@ A single **Qwen2.5-VL-7B** backbone carries one LoRA adapter, toggled per questi
 - **Open-ended** → adapter **disabled** (base model's richer, image-grounded traces)
 
 This gives the fine-tuned model's MCQ accuracy and the base model's open-ended behaviour from one checkpoint plus a ~40MB adapter, rather than two full models. All inference is single-pass, deterministic, and self-contained (no external network).
-   
 
 ## Key results (held-out validation)
 
@@ -47,16 +46,16 @@ This gives the fine-tuned model's MCQ accuracy and the base model's open-ended b
 
 Four natural interventions that did **not** improve open-ended quality under leakage-controlled evaluation:
 
-- **MCQ self-consistency** — vote@5 = greedy = 0.945 (Δ +0.000), 6× cost.
-- **DINOv3 retrieval augmentation** — an apparent gain (F1 0.285) was traced to validation images retrieving themselves (self-leakage, top-1 similarity 1.000). A leakage-free train-only index scored 0.159, *below* baseline.
-- **Answer-style prompt engineering** — no variant beat the existing prompt.
-- **Open-ended-only LoRA** — appeared marginally better on token F1 (0.175 vs 0.171), but the local judge reversed this: 0.812 vs 1.084 GT, substantially worse.
+- **MCQ self-consistency:** vote@5 = greedy = 0.945 (Δ +0.000), 6× cost.
+- **DINOv3 retrieval augmentation:** an apparent gain (F1 0.285) was traced to validation images retrieving themselves (self-leakage, top-1 similarity 1.000). A leakage-free train-only index scored 0.159, *below* baseline.
+- **Answer-style prompt engineering:** no variant beat the existing prompt.
+- **Open-ended-only LoRA:** appeared marginally better on token F1 (0.175 vs 0.171), but the local judge reversed this: 0.812 vs 1.084 GT, substantially worse.
 
 ## Calibrated local judge
 
 ![Calibrated judge scores](figure2_judge.png)
 
-Token-overlap F1 and embedding cosine cannot resolve open-ended quality (four systems within 0.016 F1). We built a local LLM judge (Qwen2.5-32B-Instruct, 0–4 rubric) approximately anchored to the organizers' reported baseline. It reverses a spurious token-F1 "win" and, via error analysis, points to the 7B backbone's **visual-diagnostic perception** as the plausible bottleneck: the model confidently names incorrect specific findings on subtle/rare cases.
+Token-overlap F1 and embedding cosine cannot resolve open-ended quality (four systems within 0.016 F1). We built a local LLM judge (Qwen2.5-32B-Instruct, 0–4 rubric) approximately anchored to the organizers' reported baseline. It reverses a spurious token-F1 "win" and, via error analysis, points to the 7B backbone's **visual-diagnostic perception** as the plausible bottleneck: the model confidently names incorrect specific findings on subtle or rare cases.
 
 ## Repository structure
 
@@ -75,14 +74,10 @@ docker_submission/  custom_system.py, Dockerfile, requirements.txt
 - Model weights and challenge data are **not** included (challenge data-use terms; size). Paths point to the released MedReason training data and the public Qwen2.5-VL checkpoint.
 - Compute: single NVIDIA GH200 GPU.
 
-## Paper
-
-This work is described in our paper accepted at the **MedReason Challenge & Workshop, MICCAI 2026** (Springer LNCS proceedings, poster):
-
-> Saeed Moosivand, Fangyijie Wang, Ziyang Wang. *A Task-Routed Hybrid Vision–Language System for Medical Visual Question Answering, and a Calibrated Analysis of the Open-Ended Reasoning Ceiling.* MICCAI 2026 MedReason Workshop.
-
-Full proceedings reference to be added once published.
-
 ## Citation
 
-If you find this useful, please cite the accompanying paper (MICCAI 2026 MedReason workshop, Springer LNCS). Full reference to be added once proceedings are published.
+This work is described in our paper accepted at the MedReason Challenge & Workshop, MICCAI 2026 (Springer LNCS proceedings, poster):
+
+> Saeed Moosivand, Fangyijie Wang, Ziyang Wang. A Task-Routed Hybrid Vision-Language System for Medical Visual Question Answering, and a Calibrated Analysis of the Open-Ended Reasoning Ceiling. MICCAI 2026 MedReason Workshop.
+
+Full proceedings reference to be added once published.
