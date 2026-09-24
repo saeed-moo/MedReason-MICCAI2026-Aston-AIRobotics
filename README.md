@@ -1,8 +1,21 @@
 # MedReason 2026 — Aston-AIRobotics
 
-A task-routed hybrid vision–language system for medical visual question answering (VQA), and a calibrated analysis of the open-ended reasoning ceiling.
+**A Task-Routed Hybrid Vision-Language System for Medical Visual Question Answering, and a Calibrated Analysis of the Open-Ended Reasoning Ceiling**
 
-This repository contains the code for our submission to the **MedReason 2026 Challenge** (MICCAI 2026 Satellite Events). The accompanying paper is accepted to the MICCAI 2026 Springer LNCS proceedings.
+Accepted at the **MedReason Challenge & Workshop, MICCAI 2026** (Springer LNCS proceedings, poster). Final challenge ranking: **8 / 16**.
+
+### Project resources
+- **Paper:** MICCAI 2026 MedReason Workshop (Springer LNCS). Full proceedings link to be added once published.
+- **Challenge:** [MedReason 2026](https://medreason26.github.io/) · [Synapse leaderboard](https://www.synapse.org/Synapse:syn74403682/wiki/)
+- **Poster:** see the `poster/` folder in this repository. Add the PDF there if you want it downloadable.
+- **Code:** this repository
+
+### Authors & contact
+- **Saeed Moosivand** (lead), Aston University, UK. 240169451@aston.ac.uk
+- **Fangyijie Wang**, University College Dublin, Ireland. fangyijie.wang@ucdconnect.ie
+- **Ziyang Wang**, Aston University, UK. z.wang47@aston.ac.uk
+
+---
 
 ## Overview
 
