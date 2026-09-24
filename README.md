@@ -7,7 +7,7 @@ Accepted at the **MedReason Challenge & Workshop, MICCAI 2026** (Springer LNCS p
 ### Project resources
 - **Paper:** MICCAI 2026 MedReason Workshop (Springer LNCS). Full proceedings link to be added once published.
 - **Challenge:** [MedReason 2026](https://medreason26.github.io/) · [Synapse leaderboard](https://www.synapse.org/Synapse:syn74403682/wiki/)
-- **Poster:** see the `poster/` folder in this repository. Add the PDF there if you want it downloadable.
+- **Poster:** see the `(poster/Aston-AIRobotics_Poster.pdf)` folder in this repository. Add the PDF there if you want it downloadable.
 - **Code:** this repository
 
 ### Authors & contact
